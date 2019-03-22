@@ -1,0 +1,69 @@
+﻿@model PagedList.IPagedList<JobOpeningsMVCClient.JobSearchService.JobDTO>
+@using PagedList.Mvc;
+
+<table class="table">
+    <tr>
+        <th>
+            <label>Job Id</label>
+        </th>
+        <th>
+           <label>Company Location</label>
+        </th>
+        <th>
+           <label>Company Name</label>
+        </th>
+        <th>
+            <label>Openings##</label>
+        </th>
+        <th>
+           <label>Skills</label>
+        </th>
+        <th>
+            <label>Role</label>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfVacancies)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimarySkill)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoleName)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>*@
+    </tr>
+}
+
+</table>
+
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@*@Html.PagedListPager(Model, page => Url.Action("AllOpenings",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))*@
+
+
+@Html.PagedListPager(Model, page => Url.Action("AllOpenings",
+   new
+   {
+       page
+   }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "Display" }))

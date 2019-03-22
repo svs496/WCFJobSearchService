@@ -1,0 +1,56 @@
+﻿@model IEnumerable<JobOpeningsMVCClient.JobSearchService.JobDTO>
+
+
+@if (Model != null)
+{
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfVacancies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimarySkill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyLocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfVacancies)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrimarySkill)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleName)
+                </td>
+               
+            </tr>
+        }
+
+    </table>
+}

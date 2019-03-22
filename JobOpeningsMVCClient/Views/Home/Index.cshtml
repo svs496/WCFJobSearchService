@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Job Openings Page";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<div class="row" style="margin-top:10px">
+    <div class="col-sm-6">
+        <h4>View All Jobs</h4>
+        @Ajax.ActionLink("Show All Job Openings", "AllOpenings", "Home",
+    new AjaxOptions() { UpdateTargetId = "Display", OnSuccess="HidePartialDiv" })
+    </div>
+    <div class="col-sm-6">
+        <h4>View Jobs By Roles</h4>
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Select Role</label>
+            </div>
+            <div class="col-sm-4">
+                @Html.DropDownList("RolesDropdown", ViewBag.VBRolesList as SelectList, "Select Role",
+       new { @class = "form-control" , @id = "ddlRoles" })
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="Display" style="margin-top:10px">
+
+</div>
+
+<div id="partialDiv" style="margin-top:10px">
+    @Html.Partial("_OpeningsByRoles")
+</div>
+
+<script>
+
+    function HidePartialDiv() {
+        $("#Display").show();
+        $("#partialDiv").hide();
+    }
+
+
+    $(document).ready(function()
+    {
+        $("#ddlRoles").on("change", function ()
+        {
+            var targeturl = '@Url.Action("GetOpeningsByRole", "Home")?roleId=' + $(this)[0].value;
+            $.ajax(
+            {
+                url:  targeturl,
+                type: 'GET',
+                data: "",
+                contentType: 'application/json; charset=utf-8',
+                success: function(data)
+                {
+                    console.log(data);
+                    $("#partialDiv").html(data);
+
+                },
+                error: function()
+                {
+                    console.log("Hi");
+                    alert("error");
+                }
+            });
+            $("#partialDiv").show();
+            $("#Display").hide();
+        });
+    });
+</script>  

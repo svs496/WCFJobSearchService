@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a12e99c8-e2b4-49e4-ac5e-ffc33c8c7440" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/WCFJobSearchService/JobSearchService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="JobSearchService.xsd" MetadataType="Schema" ID="97abd0ee-2f5a-40f0-80d1-c85d0b07af79" SourceId="1" SourceUrl="http://localhost/WCFJobSearchService/JobSearchService.svc?xsd=xsd2" />
+    <MetadataFile FileName="JobSearchService1.xsd" MetadataType="Schema" ID="b7b48af2-e984-482f-be7c-3fa6b115f1cd" SourceId="1" SourceUrl="http://localhost/WCFJobSearchService/JobSearchService.svc?xsd=xsd0" />
+    <MetadataFile FileName="JobSearchService2.xsd" MetadataType="Schema" ID="171d7ced-c7a9-4a81-8d05-6f39c2e632a3" SourceId="1" SourceUrl="http://localhost/WCFJobSearchService/JobSearchService.svc?xsd=xsd1" />
+    <MetadataFile FileName="JobSearchService.wsdl" MetadataType="Wsdl" ID="dfe4cf11-8d37-494c-9c4e-53f3c5ee8f7c" SourceId="1" SourceUrl="http://localhost/WCFJobSearchService/JobSearchService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
